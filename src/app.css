@@ -1,0 +1,106 @@
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Modern CSS reset and base styles */
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	* {
+		margin: 0;
+	}
+
+	body {
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	#root {
+		isolation: isolate;
+	}
+}
+
+/* Base typography and layout */
+@layer base {
+	body {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		background-color: #f3f4f6;
+	}
+
+	/* Print optimizations */
+	@media print {
+		body {
+			font-size: 12pt;
+			line-height: 1.4;
+			color: #000;
+			background: #fff;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		.no-print {
+			display: none !important;
+		}
+	}
+}
+
+/* Utility classes */
+@layer utilities {
+	/* Text balance for better typography */
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	/* Screen reader only content */
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* Focus trap for modals */
+	.focus\\:outline-none:focus {
+		outline: 2px solid transparent;
+		outline-offset: 2px;
+	}
+}
