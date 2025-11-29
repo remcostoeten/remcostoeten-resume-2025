@@ -5,7 +5,7 @@
 
 	let { summary }: Props = $props();
 
-	// Important terms and phrases to bold
+	// Important terms and phrases to bold (ordered as they appear in the summary)
 	const importantTerms = [
 		'Front End Engineer',
 		'eight years',
@@ -27,6 +27,8 @@
 		'Kanban',
 		'Shape Up',
 		'full stack architecture',
+		'scalability',
+		'design systems',
 		'developer experience tooling'
 	];
 

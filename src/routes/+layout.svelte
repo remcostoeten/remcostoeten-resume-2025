@@ -129,7 +129,7 @@
 	</a>
 
 	<!-- Main content area -->
-	<main id="main-content" class="container mx-auto px-6 py-10 max-w-4xl print:max-w-none print:p-0">
+	<main id="main-content" class="container mx-auto max-w-4xl print:max-w-none">
 		{@render children()}
 	</main>
 </div>

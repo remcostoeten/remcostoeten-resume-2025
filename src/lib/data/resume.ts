@@ -13,15 +13,15 @@ export const resumeData: Resume = {
 	},
 	summary: [
 		'Front End Engineer with eight years of experience across SaaS, e commerce, government platforms and e learning systems.',
-		'Graphic Design degree brings strong visual design sensibility to technical implementation.',
+		'Graphic Design degree brings strong visual design sensibility to technical implementation.<br><br>',
 		'Focused on TypeScript, React, Next.js and modern tooling with strong product thinking and autonomy.',
-		'Comfortable with fully remote, autonomous, and hybrid work environments using Scrum, Kanban and Shape Up.',
-		'Expanding expertise in full stack architecture and developer experience tooling.'
+		'Experienced with fully remote, autonomous, and hybrid work environments using Scrum, Kanban and Shape Up.',
+		'Expanding expertise in full stack architecture, scalability, design systems and developer experience tooling.<br><br>',
 	],
 	experience: [
 		{
 			company: 'Brainstud / Allyyoucanlearn',
-			role: 'Front End Developer',
+			role: 'Front End Developer',	
 			period: '2025, current',
 			bullets: [
 				'Building a modern e learning platform with Next.js, TypeScript and React Query.',
@@ -69,7 +69,7 @@ export const resumeData: Resume = {
 		{
 			name: 'Fync',
 			desc: 'Unified API wrapper for GitHub, Vercel, NPM, Spotify and others.',
-			link: 'https://docs-fync.vercel.app'
+			link: 'https://fync-docs.vercel.app/docs'
 		},
 		{
 			name: 'Drizzleasy',

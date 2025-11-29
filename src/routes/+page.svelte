@@ -52,7 +52,7 @@
 </svelte:head>
 
 <!-- Main Resume Content -->
-<main class="container mx-auto max-w-4xl p-8 bg-white shadow-lg my-8">
+<main class="container mx-auto max-w-4xl bg-neutral-50 shadow-lg p-8 my-8">
 	<Header basics={resume.basics} />
 	<div class="space-y-8">
 		<Summary summary={resume.summary} />
