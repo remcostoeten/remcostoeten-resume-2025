@@ -57,7 +57,11 @@
 	<div class="space-y-8">
 		<Summary summary={resume.summary} />
 		<Experience experience={resume.experience} />
-		<Projects projects={resume.projects} />
+		<Projects
+		projects={resume.projects}
+		sectionTitle="Projects & Hobbies"
+		showLinks={true}
+	/>
 		<Skills skills={resume.skills} languages={resume.languages} />
 		<Education education={resume.education} />
 	</div>

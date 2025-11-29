@@ -113,6 +113,9 @@
 	<!-- Preconnect for external resources -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+
+	<!-- Inter font from Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <!-- Main layout wrapper -->
@@ -129,29 +132,6 @@
 	<main id="main-content" class="container mx-auto px-6 py-10 max-w-4xl print:max-w-none print:p-0">
 		{@render children()}
 	</main>
-
-	<!-- Footer with accessibility info -->
-	<footer class="mt-16 border-t border-slate-200 bg-white print:border-slate-300">
-		<div class="container mx-auto px-4 py-8 max-w-4xl">
-			<div class="text-center text-sm text-slate-600 print:text-black">
-				<p class="mb-2">
-					© {new Date().getFullYear()} {data.resume.basics.name}. Built with
-					<a
-						href="https://kit.svelte.dev"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-slate-600 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 rounded px-1"
-					>
-						SvelteKit
-					</a>
-					for professional engineering presentation.
-				</p>
-				<p class="text-xs">
-					This site follows WCAG 2.1 AA guidelines and is optimized for accessibility and performance.
-				</p>
-			</div>
-		</div>
-	</footer>
 </div>
 
 <!-- Accessibility announcement region for screen readers -->
