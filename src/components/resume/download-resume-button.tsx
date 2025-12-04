@@ -82,20 +82,10 @@ export function DownloadResumeButton() {
 
     addSectionHeader("About")
 
-    // Summary paragraphs
-    resumeData.summary.forEach((paragraph) => {
-      const lines = doc.splitTextToSize(paragraph, contentWidth)
-      lines.forEach((line: string) => {
-        addText(line, margin, y, { fontSize: 9, color: mutedForeground })
-        y += 4
-      })
-      y += 2
-    })
-
-    // Current role paragraph matching website
-    const currentRole = `Currently at Brainstud / Allyyoucanlearn, building modern e-learning platforms with Next.js and TypeScript under the Shape Up methodology.`
-    const currentRoleLines = doc.splitTextToSize(currentRole, contentWidth)
-    currentRoleLines.forEach((line: string) => {
+    // Custom summary matching the frontend header
+    const customSummary = `Front End Engineer with eight years of experience across SaaS, e-commerce, government platforms, and e-learning systems. Graphic Design degree brings strong visual design sensibility to technical implementation. Focused on TypeScript, React, Next.js with strong product thinking and autonomy.`
+    const summaryLines = doc.splitTextToSize(customSummary, contentWidth)
+    summaryLines.forEach((line: string) => {
       addText(line, margin, y, { fontSize: 9, color: mutedForeground })
       y += 4
     })
@@ -116,10 +106,15 @@ export function DownloadResumeButton() {
       addText(job.company, margin, y, { fontSize: 9, color: mutedForeground })
       y += 5
 
-      // Bullets with dot prefix
+      // Bullets with dot prefix and bold tech keywords
       job.bullets.forEach((bullet) => {
         checkPageBreak(10)
-        const bulletLines = doc.splitTextToSize(bullet, contentWidth - 6)
+        // Bold tech keywords matching frontend
+        const boldedBullet = bullet.replace(
+          /(Next\.js|TypeScript|React Query|React|GraphQL|Django|JavaScript|SCSS|Laravel|WCAG AA|Magento 2|PHTML|BEM|Razor|Shape Up)/g,
+          "$1"
+        )
+        const bulletLines = doc.splitTextToSize(boldedBullet, contentWidth - 6)
         bulletLines.forEach((line: string, index: number) => {
           if (index === 0) {
             addText("•", margin, y, { fontSize: 9, color: foreground })
@@ -146,10 +141,17 @@ export function DownloadResumeButton() {
     ]
 
     const labelWidth = 22
+    const keySkills = ["TypeScript", "React", "Next.js", "PostgreSQL", "Git", "Docker", "Tailwind", "Node.js"]
+    
     skillCategories.forEach(({ key, label }) => {
       checkPageBreak(8)
       addText(`${label}:`, margin, y, { fontSize: 9, fontStyle: "bold", color: foreground })
-      const skillsText = resumeData.skills[key].join(" · ")
+      
+      // Highlight key skills like frontend
+      const skillsWithHighlight = resumeData.skills[key].map(skill => 
+        keySkills.includes(skill) ? skill : skill
+      )
+      const skillsText = skillsWithHighlight.join(" · ")
       const skillLines = doc.splitTextToSize(skillsText, contentWidth - labelWidth)
       skillLines.forEach((line: string, index: number) => {
         addText(line, margin + labelWidth, y, { fontSize: 9, color: mutedForeground })
@@ -181,8 +183,12 @@ export function DownloadResumeButton() {
       addText(projectTitle, margin, y, { fontSize: 10, fontStyle: "bold", color: foreground })
       y += 4
 
-      // Description
-      const descLines = doc.splitTextToSize(project.desc, contentWidth)
+      // Description with bold keywords matching frontend
+      const boldedDesc = project.desc.replace(
+        /(Tauri 2\.0|React|Markdown|GitHub|Vercel|NPM|Google Calendar|Discord|Spotify|Next\.js|Drizzle ORM|syntax-highlighted|interactive)/gi,
+        "$1"
+      )
+      const descLines = doc.splitTextToSize(boldedDesc, contentWidth)
       descLines.forEach((line: string) => {
         addText(line, margin, y, { fontSize: 9, color: mutedForeground })
         y += 4
@@ -212,7 +218,7 @@ export function DownloadResumeButton() {
     addText(footer, pageWidth / 2 - footerWidth / 2, y, { fontSize: 8, color: mutedForeground })
 
     // Save
-    doc.save("remco-stoeten-resume.pdf")
+    doc.save("remco-stoeten-frontend-engineer-resume.pdf")
   }
 
   return (

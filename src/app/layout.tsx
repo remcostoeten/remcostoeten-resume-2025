@@ -1,19 +1,13 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics"
-import "./globals.css"
+import "@/styles/globals.css"
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-})
+const geistSans = GeistSans.variable
+const geistMono = GeistMono.variable
 
 // <CHANGE> Complete SEO metadata for resume site
 export const metadata: Metadata = {
@@ -97,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${geistSans} ${geistMono}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

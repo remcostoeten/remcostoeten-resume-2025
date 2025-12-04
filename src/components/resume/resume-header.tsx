@@ -70,7 +70,8 @@ export function ResumeHeader({ basics, summary }: ResumeHeaderProps) {
           <strong className="text-foreground">eight years</strong> of experience across{" "}
           <strong className="text-foreground">SaaS</strong>, <strong className="text-foreground">e-commerce</strong>,{" "}
           <strong className="text-foreground">government platforms</strong>, and{" "}
-          <strong className="text-foreground">e-learning systems</strong>. Focused on{" "}
+          <strong className="text-foreground">e-learning systems</strong>.{" "}
+          <strong className="text-foreground">Graphic Design degree</strong> brings strong visual design sensibility to technical implementation. Focused on{" "}
           <strong className="text-foreground">TypeScript</strong>, <strong className="text-foreground">React</strong>,{" "}
           <strong className="text-foreground">Next.js</strong> with strong{" "}
           <strong className="text-foreground">product thinking</strong> and{" "}
