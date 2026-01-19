@@ -1,12 +1,13 @@
 {
-  "name": "my-v0-project",
+  "name": "remco-stoeten-2025-resume",
+  "description": "Resume of Remco Stoeten - Frontend engineer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint .",
-    "start": "next start"
+    "dep": "echo 'deploying to staging'; vercel deploy",
+    "deploy": "echo 'deploying to production'; vercel deploy --prod"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

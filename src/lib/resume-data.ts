@@ -38,6 +38,7 @@ export interface Skills {
   databases: string[]
   tools: string[]
   design: string[]
+  ai: string[]
 }
 
 export interface Language {
@@ -121,22 +122,17 @@ export const resumeData: Resume = {
   projects: [
     {
       name: "Skriuw",
-      desc: "A local-first desktop application for writing and organizing thoughts. Built with Tauri 2.0 and React, Skriuw blends note-taking and task management into a fast, private workspace with Markdown editing and offline access.",
+      desc: "Native desktop note and task manager built with Next.js and Tauri 2.0. Features local-first storage, Markdown editing with preview, and cross-platform support for Linux, macOS and Windows.",
       link: "https://skriuw.vercel.app",
       category: "app",
       note: "In active development",
     },
     {
-      name: "Fync",
-      desc: "Unified API wrapper for GitHub, Vercel, NPM, Google Calendar, Discord, Spotify and others.",
-      link: "https://fync-docs.vercel.app/docs",
-      category: "api",
-    },
-    {
-      name: "Drizzleasy",
-      desc: "CRUD generator for Next.js using Drizzle ORM with chainable syntax.",
-      link: "https://drizzleasy.vercel.app",
-      category: "api",
+      name: "Dora",
+      desc: "Native desktop database management tool with a Rust API and Tauri frontend. Includes connection management with SSH tunneling, spreadsheet-style data editing, Drizzle ORM integration with custom LSP, and schema export.",
+      link: "https://doradb.vercel.app",
+      category: "app",
+      note: "In active development",
     },
     {
       name: "Beautiful Code Block",
@@ -159,6 +155,7 @@ export const resumeData: Resume = {
     databases: ["PostgreSQL", "SQLite", "LibSQL", "Turso", "Drizzle ORM", "Prisma"],
     tools: ["Git", "Docker", "Vite", "pnpm", "Bun", "CI/CD", "Linux", "SSH", "DX tooling"],
     design: ["Figma", "Photoshop"],
+    ai: ["Claude Code", "Cursor", "Custom CLI tooling", "LLM API integration", "AI-assisted development"],
   },
   languages: [
     { name: "Dutch", level: "Native" },

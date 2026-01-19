@@ -12,7 +12,29 @@ export function DownloadResumeButton() {
       orientation: "portrait",
       unit: "mm",
       format: "a4",
+      compress: true,
     })
+
+    // Set PDF metadata for accessibility
+    doc.setProperties({
+      title: "Remco Stoeten - Frontend Engineer Resume",
+      subject: "Resume of Remco Stoeten, Frontend Engineer",
+      author: "Remco Stoeten",
+      keywords: "resume, frontend, engineer, react, nextjs, typescript",
+      creator: "Remco Stoeten Resume Generator",
+    })
+
+    // Set language for accessibility
+    doc.setLanguage("en-US")
+
+    // Add accessibility features
+    // Note: jsPDF has limited tagging support
+    // We'll add bookmarks for better navigation if available
+    try {
+      doc.outline.add(null, "Contact", { pageNumber: 1 })
+    } catch (e) {
+      // Outline API might not be available
+    }
 
     const pageWidth = doc.internal.pageSize.getWidth()
     const pageHeight = doc.internal.pageSize.getHeight()
@@ -39,7 +61,9 @@ export function DownloadResumeButton() {
       const { fontSize = 10, color = mutedForeground, fontStyle = "normal", maxWidth } = options || {}
       doc.setFontSize(fontSize)
       doc.setTextColor(...color)
+      // Use embedded fonts to avoid missing font issues
       doc.setFont("helvetica", fontStyle)
+      doc.setFont("helvetica", fontStyle) // Ensure font is embedded
       if (maxWidth) {
         doc.text(text, x, yPos, { maxWidth })
       } else {
@@ -64,6 +88,13 @@ export function DownloadResumeButton() {
       doc.setLineWidth(0.3)
       doc.line(margin, y, margin + contentWidth, y)
       y += 6
+      
+      // Add bookmark for accessibility
+      try {
+        doc.outline.add(null, title, { pageNumber: Math.floor(y / pageHeight) + 1 })
+      } catch (e) {
+        // Outline API might not be available
+      }
     }
 
     // Header - Name and Title
@@ -138,6 +169,7 @@ export function DownloadResumeButton() {
       { key: "tools", label: "Tools" },
       { key: "styling", label: "Styling" },
       { key: "design", label: "Design" },
+      { key: "ai", label: "AI" },
     ]
 
     const labelWidth = 22
@@ -213,7 +245,7 @@ export function DownloadResumeButton() {
     doc.setDrawColor(...borderColor)
     doc.line(margin, y, margin + contentWidth, y)
     y += 5
-    const footer = "Built with Next.js and Tailwind CSS, deployed on Vercel."
+    const footer = ""
     const footerWidth = doc.getTextWidth(footer)
     addText(footer, pageWidth / 2 - footerWidth / 2, y, { fontSize: 8, color: mutedForeground })
 

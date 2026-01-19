@@ -17,7 +17,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section>
       <h3 className="text-xs font-bold uppercase tracking-widest text-foreground border-b border-foreground pb-1 mb-5">
-        Projects
+        Hobby Projects
       </h3>
       <div className="space-y-4">
         {projects.map((project, index) => (
@@ -48,6 +48,9 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           </div>
         ))}
       </div>
+      <p className="text-xs text-muted-foreground mt-4 italic">
+        * Most professional projects are closed source, but I'm happy to discuss them in an interview
+      </p>
     </section>
   )
 }

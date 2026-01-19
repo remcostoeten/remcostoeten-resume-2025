@@ -13,6 +13,7 @@ const skillCategories: { key: keyof Skills; label: string }[] = [
   { key: "tools", label: "Tools" },
   { key: "styling", label: "Styling" },
   { key: "design", label: "Design" },
+  { key: "ai", label: "AI" },
 ]
 
 export function SkillsSection({ skills, languages }: SkillsSectionProps) {
