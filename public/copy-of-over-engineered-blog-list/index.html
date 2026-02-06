@@ -1,177 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio & Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              background: 'hsl(var(--background))',
-              foreground: 'hsl(var(--foreground))',
-              muted: 'hsl(var(--muted))',
-              'muted-foreground': 'hsl(var(--muted-foreground))',
-              accent: 'hsl(var(--accent))',
-              border: 'hsl(var(--border))',
-              primary: 'hsl(var(--primary))',
-              'primary-foreground': 'hsl(var(--primary-foreground))',
-              destructive: 'hsl(var(--destructive))',
-              input: 'hsl(var(--input))',
-              ring: 'hsl(var(--ring))',
-            },
-            fontFamily: {
-              sans: ['Inter', 'system-ui', 'sans-serif'],
-              mono: ['Fira Code', 'JetBrains Mono', 'Consolas', 'monospace'],
-            },
-            animation: {
-              'enter': 'enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards',
-              'blob-float': 'blob-float 20s infinite ease-in-out',
-              'blob-sway': 'blob-sway 15s infinite ease-in-out reverse',
-              'blob-pulse': 'blob-pulse 12s infinite ease-in-out',
-              'wiggle': 'wiggle 1s ease-in-out infinite',
-              'subtle-rotate': 'subtle-rotate 4s ease-in-out infinite',
-              'music-bar': 'music-bar 1s ease-in-out infinite',
-            },
-            keyframes: {
-              enter: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              'music-bar': {
-                '0%, 100%': { height: '20%' },
-                '50%': { height: '100%' },
-              },
-              'blob-float': {
-                "0%, 100%": { 
-                  transform: "translate(0, 0) scale(1)", 
-                  borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-                  opacity: "0.15" 
-                },
-                "25%": { 
-                  transform: "translate(20px, -30px) scale(1.1)", 
-                  borderRadius: "40% 60% 70% 30% / 50% 60% 30% 60%",
-                  opacity: "0.25" 
-                },
-                "50%": { 
-                  transform: "translate(-20px, 20px) scale(0.9)", 
-                  borderRadius: "70% 30% 50% 50% / 30% 30% 70% 70%",
-                  opacity: "0.15" 
-                },
-                "75%": { 
-                  transform: "translate(10px, -10px) scale(1.05)", 
-                  borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
-                  opacity: "0.25" 
-                }
-              },
-              'blob-sway': {
-                "0%, 100%": { 
-                  transform: "translate(0, 0) rotate(0deg) scale(1)", 
-                  borderRadius: "70% 30% 30% 70% / 60% 40% 60% 40%",
-                  opacity: "0.1" 
-                },
-                "33%": { 
-                  transform: "translate(-30px, 10px) rotate(10deg) scale(1.1)", 
-                  borderRadius: "40% 60% 60% 40% / 50% 50% 50% 50%",
-                  opacity: "0.2" 
-                },
-                "66%": { 
-                  transform: "translate(20px, -20px) rotate(-5deg) scale(0.95)", 
-                  borderRadius: "60% 40% 50% 50% / 40% 60% 40% 60%",
-                  opacity: "0.15" 
-                }
-              },
-              'blob-pulse': {
-                 "0%, 100%": { transform: "scale(1)", opacity: "0.1" },
-                 "50%": { transform: "scale(1.2)", opacity: "0.2" }
-              },
-              'wiggle': {
-                '0%, 100%': { transform: 'rotate(-12deg)' },
-                '50%': { transform: 'rotate(12deg)' },
-              },
-              'subtle-rotate': {
-                '0%, 100%': { transform: 'rotate(-5deg)' },
-                '50%': { transform: 'rotate(5deg)' },
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-      
-      :root {
-        --background: 0 0% 7%;
-        --foreground: 0 0% 85%;
-        --muted: 0 0% 12%;
-        --muted-foreground: 0 0% 65%;
-        --accent: 85 100% 75%; 
-        --border: 0 0% 20%;
-        
-        /* Shadcn UI Tokens for Contact Form */
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --ring: 0 0% 83.1%;
-        --input: 0 0% 20%;
-      }
-      
-      body {
-        background-color: hsl(var(--background));
-        color: hsl(var(--foreground));
-        font-family: 'Inter', sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio & Resume</title>
+		<script src="https://cdn.tailwindcss.com"></script>
 
-      /* Code Block Overrides for Prism One Dark consistency */
-      code[class*="language-"],
-      pre[class*="language-"] {
-        font-family: 'JetBrains Mono', monospace !important;
-        font-size: 0.9em !important;
-        background: transparent !important;
-        text-shadow: none !important;
-      }
-      
-      /* Utility for the entrance animation delay */
-      .animate-enter {
-        animation: enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-      }
-      
-      /* Utilities for animation delays */
-      .animation-delay-2000 {
-        animation-delay: 2s;
-      }
-      .animation-delay-4000 {
-        animation-delay: 4s;
-      }
-      
-      /* Custom Scrollbar for form */
-      .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: hsl(var(--muted-foreground) / 0.3);
-          border-radius: 20px;
-      }
-    </style>
-<!-- Marked for Markdown Parsing -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<!-- Prism JS Core & Autoloader -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+		<script>
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							background: 'hsl(var(--background))',
+							foreground: 'hsl(var(--foreground))',
+							muted: 'hsl(var(--muted))',
+							'muted-foreground': 'hsl(var(--muted-foreground))',
+							accent: 'hsl(var(--accent))',
+							border: 'hsl(var(--border))',
+							primary: 'hsl(var(--primary))',
+							'primary-foreground': 'hsl(var(--primary-foreground))',
+							destructive: 'hsl(var(--destructive))',
+							input: 'hsl(var(--input))',
+							ring: 'hsl(var(--ring))'
+						},
+						fontFamily: {
+							sans: ['Inter', 'system-ui', 'sans-serif'],
+							mono: ['Fira Code', 'JetBrains Mono', 'Consolas', 'monospace']
+						},
+						animation: {
+							enter: 'enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards',
+							'blob-float': 'blob-float 20s infinite ease-in-out',
+							'blob-sway': 'blob-sway 15s infinite ease-in-out reverse',
+							'blob-pulse': 'blob-pulse 12s infinite ease-in-out',
+							wiggle: 'wiggle 1s ease-in-out infinite',
+							'subtle-rotate': 'subtle-rotate 4s ease-in-out infinite',
+							'music-bar': 'music-bar 1s ease-in-out infinite'
+						},
+						keyframes: {
+							enter: {
+								'0%': { opacity: '0', transform: 'translateY(20px)' },
+								'100%': { opacity: '1', transform: 'translateY(0)' }
+							},
+							'music-bar': {
+								'0%, 100%': { height: '20%' },
+								'50%': { height: '100%' }
+							},
+							'blob-float': {
+								'0%, 100%': {
+									transform: 'translate(0, 0) scale(1)',
+									borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+									opacity: '0.15'
+								},
+								'25%': {
+									transform: 'translate(20px, -30px) scale(1.1)',
+									borderRadius: '40% 60% 70% 30% / 50% 60% 30% 60%',
+									opacity: '0.25'
+								},
+								'50%': {
+									transform: 'translate(-20px, 20px) scale(0.9)',
+									borderRadius: '70% 30% 50% 50% / 30% 30% 70% 70%',
+									opacity: '0.15'
+								},
+								'75%': {
+									transform: 'translate(10px, -10px) scale(1.05)',
+									borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+									opacity: '0.25'
+								}
+							},
+							'blob-sway': {
+								'0%, 100%': {
+									transform: 'translate(0, 0) rotate(0deg) scale(1)',
+									borderRadius: '70% 30% 30% 70% / 60% 40% 60% 40%',
+									opacity: '0.1'
+								},
+								'33%': {
+									transform: 'translate(-30px, 10px) rotate(10deg) scale(1.1)',
+									borderRadius: '40% 60% 60% 40% / 50% 50% 50% 50%',
+									opacity: '0.2'
+								},
+								'66%': {
+									transform: 'translate(20px, -20px) rotate(-5deg) scale(0.95)',
+									borderRadius: '60% 40% 50% 50% / 40% 60% 40% 60%',
+									opacity: '0.15'
+								}
+							},
+							'blob-pulse': {
+								'0%, 100%': { transform: 'scale(1)', opacity: '0.1' },
+								'50%': { transform: 'scale(1.2)', opacity: '0.2' }
+							},
+							wiggle: {
+								'0%, 100%': { transform: 'rotate(-12deg)' },
+								'50%': { transform: 'rotate(12deg)' }
+							},
+							'subtle-rotate': {
+								'0%, 100%': { transform: 'rotate(-5deg)' },
+								'50%': { transform: 'rotate(5deg)' }
+							}
+						}
+					}
+				}
+			}
+		</script>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+			:root {
+				--background: 0 0% 7%;
+				--foreground: 0 0% 85%;
+				--muted: 0 0% 12%;
+				--muted-foreground: 0 0% 65%;
+				--accent: 85 100% 75%;
+				--border: 0 0% 20%;
+
+				/* Shadcn UI Tokens for Contact Form */
+				--primary: 0 0% 98%;
+				--primary-foreground: 0 0% 9%;
+				--destructive: 0 62.8% 30.6%;
+				--destructive-foreground: 0 0% 98%;
+				--ring: 0 0% 83.1%;
+				--input: 0 0% 20%;
+			}
+
+			body {
+				background-color: hsl(var(--background));
+				color: hsl(var(--foreground));
+				font-family: 'Inter', sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			/* Code Block Overrides for Prism One Dark consistency */
+			code[class*='language-'],
+			pre[class*='language-'] {
+				font-family: 'JetBrains Mono', monospace !important;
+				font-size: 0.9em !important;
+				background: transparent !important;
+				text-shadow: none !important;
+			}
+
+			/* Utility for the entrance animation delay */
+			.animate-enter {
+				animation: enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+			}
+
+			/* Utilities for animation delays */
+			.animation-delay-2000 {
+				animation-delay: 2s;
+			}
+			.animation-delay-4000 {
+				animation-delay: 4s;
+			}
+
+			/* Custom Scrollbar for form */
+			.custom-scrollbar::-webkit-scrollbar {
+				width: 4px;
+			}
+			.custom-scrollbar::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			.custom-scrollbar::-webkit-scrollbar-thumb {
+				background-color: hsl(var(--muted-foreground) / 0.3);
+				border-radius: 20px;
+			}
+		</style>
+		<!-- Marked for Markdown Parsing -->
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<!-- Prism JS Core & Autoloader -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+		<link rel="stylesheet" href="/index.css" />
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/index.tsx"></script>
+	</body>
 </html>
