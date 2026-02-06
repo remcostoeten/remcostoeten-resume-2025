@@ -69,10 +69,10 @@ export const resumeData: Resume = {
     linkedin: "https://linkedin.com/in/remco-stoeten",
   },
   summary: [
-    "Front-end engineer with a degree in graphic design and over eight years of experience across B2B/B2C e-commerce, open-source govtech, large-scale in-house SaaS, and e-learning platforms.",
-    "Strong product mindset with a focus on performance, scalability, and user experience.",
-    "Actively working with AI, both integrating APIs into products and leveraging AI to enhance developer experience and internal tooling.",
-    "Comfortable in fully remote and hybrid environments. Experienced with Scrum, Kanban, Shape Up, and autonomous teams.",
+    "Front-end engineer with a degree in **graphic design** and over eight years of experience across **B2B/B2C e-commerce, open-source govtech, large-scale SaaS, and e-learning**.",
+    "**Strong product mindset** with a focus on **performance, scalability, and user experience**.",
+    "Actively working with **AI**, both integrating APIs into products and leveraging AI to enhance **developer experience** and internal tooling.",
+    "Comfortable in **fully remote and hybrid environments**. Experienced with **Scrum, Kanban, Shape Up**, and autonomous teams.",
   ],
   experience: [
     {
@@ -80,9 +80,9 @@ export const resumeData: Resume = {
       role: "Front End Developer",
       period: "2025 — Present",
       bullets: [
-        "Building a modern e-learning platform with Next.js, TypeScript and React Query.",
-        "Working under the Shape Up methodology delivering scoped and iterative features.",
-        "Collaborating with a Laravel backend team through a custom REST layer.",
+        "Building an e-learning platform with Next.js, TypeScript and React Query serving multiple educational institutions.",
+        "Delivering scoped features end-to-end under the Shape Up methodology in six-week cycles.",
+        "Integrating with a Laravel backend through a custom REST layer, coordinating across front-end and back-end teams.",
       ],
     },
     {
@@ -90,10 +90,10 @@ export const resumeData: Resume = {
       role: "Front End Developer",
       period: "2023 — 2025",
       bullets: [
-        "Developed fully open source government platforms using React, GraphQL and Django.",
-        "Rebuilt the FSV fraud detection platform in JavaScript, SCSS and Django.",
-        "Improved reliability and maintainability of a core intranet site builder used across government institutions.",
-        "Implemented WCAG AA compliance and accessibility standards for government applications.",
+        "Worked on fully open-source government platforms used by multiple Dutch ministries and municipalities, built with React, GraphQL and Django.",
+        "Rebuilt the front-end of the FSV fraud detection platform, improving structure and maintainability.",
+        "Helped maintain and extend a core intranet site builder relied on by government institutions across the Netherlands.",
+        "Brought existing applications in line with WCAG AA accessibility standards.",
       ],
     },
     {
@@ -101,15 +101,19 @@ export const resumeData: Resume = {
       role: "Software Developer",
       period: "2022 — 2023",
       bullets: [
-        "Rebuilt the complete webshop front-end using Razor, SCSS and JavaScript.",
-        "Delivered production features autonomously for React-based internal applications.",
+        "Rebuilt the complete webshop front-end using Razor, SCSS and JavaScript, improving page structure and UX.",
+        "Worked independently on React-based internal tools, shipping features from design to production.",
       ],
     },
     {
       company: "Tickles",
       role: "Front End Developer",
       period: "2016 — 2022",
-      bullets: ["Built custom Magento 2 webshops for B2B and B2C clients using PHTML, BEM SCSS and JavaScript."],
+      bullets: [
+        "Built and maintained custom Magento 2 webshops for a range of B2B and B2C clients.",
+        "Handled front-end implementation across multiple projects, working with PHTML templates, BEM/SCSS and JavaScript.",
+        "Grew from junior to mid-level over six years, gradually taking on more ownership and client responsibility.",
+      ],
     },
   ],
   education: [

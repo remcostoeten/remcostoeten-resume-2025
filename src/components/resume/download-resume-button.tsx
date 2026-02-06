@@ -4,6 +4,31 @@ import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { resumeData } from "@/lib/resume-data"
 
+// Helper function to parse bold markdown and return segments for PDF
+function parseBoldForPDF(text: string): Array<{ text: string; bold: boolean }> {
+  const segments: Array<{ text: string; bold: boolean }> = []
+  const regex = /\*\*(.*?)\*\*/g
+  let lastIndex = 0
+  let match
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      segments.push({ text: text.slice(lastIndex, match.index), bold: false })
+    }
+    // Add bold text
+    segments.push({ text: match[1], bold: true })
+    lastIndex = regex.lastIndex
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    segments.push({ text: text.slice(lastIndex), bold: false })
+  }
+
+  return segments.length > 0 ? segments : [{ text, bold: false }]
+}
+
 export function DownloadResumeButton() {
   const generatePDF = async () => {
     const { jsPDF } = await import("jspdf")
@@ -113,12 +138,35 @@ export function DownloadResumeButton() {
 
     addSectionHeader("About")
 
-    // Custom summary matching the frontend header
-    const customSummary = `Front End Engineer with eight years of experience across SaaS, e-commerce, government platforms, and e-learning systems. Graphic Design degree brings strong visual design sensibility to technical implementation. Focused on TypeScript, React, Next.js with strong product thinking and autonomy.`
-    const summaryLines = doc.splitTextToSize(customSummary, contentWidth)
-    summaryLines.forEach((line: string) => {
-      addText(line, margin, y, { fontSize: 9, color: mutedForeground })
-      y += 4
+    // Use resume data summary with bold formatting
+    resumeData.summary.forEach((paragraph) => {
+      const segments = parseBoldForPDF(paragraph)
+      let currentX = margin
+
+      doc.setFontSize(9)
+
+      segments.forEach((segment) => {
+        const fontStyle = segment.bold ? "bold" : "normal"
+        doc.setFont("helvetica", fontStyle)
+        doc.setTextColor(...mutedForeground)
+
+        const words = segment.text.split(' ')
+        words.forEach((word, wordIndex) => {
+          const wordWidth = doc.getTextWidth(word + ' ')
+          const lineHeight = 4
+
+          // Simple line wrapping logic
+          if (currentX - margin + wordWidth > contentWidth) {
+            currentX = margin
+            y += lineHeight
+          }
+
+          doc.text(word + (wordIndex < words.length - 1 ? ' ' : ''), currentX, y)
+          currentX += wordWidth
+        })
+      })
+
+      y += 5
     })
     y += 6
 
@@ -170,6 +218,7 @@ export function DownloadResumeButton() {
       { key: "styling", label: "Styling" },
       { key: "design", label: "Design" },
       { key: "ai", label: "AI" },
+      { key: "misc", label: "Miscellaneous" },
     ]
 
     const labelWidth = 22

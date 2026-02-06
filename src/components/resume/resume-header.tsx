@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Mail, MapPin, Phone, Github, Linkedin, Globe } from "lucide-react"
 import { DownloadResumeButton } from "./download-resume-button"
+import { parseBold } from "@/lib/utils"
 import type { ResumeBasics } from "@/lib/resume-data"
 
 interface ResumeHeaderProps {
@@ -66,7 +67,7 @@ export function ResumeHeader({ basics, summary }: ResumeHeaderProps) {
 
       <div className="mt-6 text-sm text-pretty leading-relaxed text-muted-foreground space-y-3">
         {summary.map((line, i) => (
-          <p key={i}>{line}</p>
+          <p key={i}>{parseBold(line)}</p>
         ))}
       </div>
 
