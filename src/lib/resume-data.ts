@@ -26,6 +26,7 @@ export interface Project {
 	name: string
 	desc: string
 	link: string
+	github?: string
 	category?: string
 	note?: string
 }
@@ -128,6 +129,7 @@ export const resumeData: Resume = {
 			name: 'Skriuw',
 			desc: 'Note-taking and productivity platform available as web app, PWA, or native desktop app (Tauri/Rust). Cloud, self-hosted, or fully offline. Block editor with wikilinks, BYOK for AI and database, daily notes, 25+ keyboard shortcuts, and deep customization. macOS, Windows, and Linux.',
 			link: 'https://skriuw.vercel.app',
+			github: 'https://github.com/remcostoeten/skriuw',
 			category: 'app',
 			note: 'In active development'
 		},
@@ -135,6 +137,7 @@ export const resumeData: Resume = {
 			name: 'Dora',
 			desc: "High-performance, keyboard-centric database explorer built with Rust and Tauri. At ~8.5MB vs pgAdmin's ~400MB. Features query execution, data visualization, migration tooling, ORM schema generation, SSH tunneling, and a custom Go CLI for builds and releases. Fully offline, zero telemetry.",
 			link: 'https://doradb.vercel.app',
+			github: 'https://github.com/remcostoeten/dora',
 			category: 'app',
 			note: 'In active development'
 		},
