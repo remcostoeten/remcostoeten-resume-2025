@@ -24,14 +24,16 @@ A modern, responsive portfolio and resume website built with React, TypeScript, 
 **Prerequisites:** Node.js 18+ and npm
 
 1. Install dependencies:
-   ```bash
-   npm install
-   ```
+
+    ```bash
+    npm install
+    ```
 
 2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+
+    ```bash
+    npm run dev
+    ```
 
 3. Open your browser and navigate to `http://localhost:3000`
 
@@ -60,9 +62,10 @@ A modern, responsive portfolio and resume website built with React, TypeScript, 
 The site can be deployed to any static hosting service:
 
 1. Build the project:
-   ```bash
-   npm run build
-   ```
+
+    ```bash
+    npm run build
+    ```
 
 2. Deploy the `dist` folder to your preferred hosting provider.
 
