@@ -64,19 +64,10 @@ export function ResumeHeader({ basics, summary }: ResumeHeaderProps) {
         </Link>
       </div>
 
-      <div className="mt-6 text-sm leading-relaxed text-muted-foreground">
-        <p>
-          <strong className="text-foreground">Front End Engineer</strong> with{" "}
-          <strong className="text-foreground">eight years</strong> of experience across{" "}
-          <strong className="text-foreground">SaaS</strong>, <strong className="text-foreground">e-commerce</strong>,{" "}
-          <strong className="text-foreground">government platforms</strong>, and{" "}
-          <strong className="text-foreground">e-learning systems</strong>.{" "}
-          <strong className="text-foreground">Graphic Design degree</strong> brings strong visual design sensibility to technical implementation. Focused on{" "}
-          <strong className="text-foreground">TypeScript</strong>, <strong className="text-foreground">React</strong>,{" "}
-          <strong className="text-foreground">Next.js</strong> with strong{" "}
-          <strong className="text-foreground">product thinking</strong> and{" "}
-          <strong className="text-foreground">autonomy</strong>.
-        </p>
+      <div className="mt-6 text-sm text-pretty leading-relaxed text-muted-foreground space-y-3">
+        {summary.map((line, i) => (
+          <p key={i}>{line}</p>
+        ))}
       </div>
 
       <div className="mt-6">

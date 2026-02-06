@@ -14,6 +14,7 @@ const skillCategories: { key: keyof Skills; label: string }[] = [
   { key: "styling", label: "Styling" },
   { key: "design", label: "Design" },
   { key: "ai", label: "AI" },
+  { key: "misc", label: "Misc" },
 ]
 
 export function SkillsSection({ skills, languages }: SkillsSectionProps) {
@@ -57,6 +58,7 @@ export function SkillsSection({ skills, languages }: SkillsSectionProps) {
             ))}
           </span>
         </div>
+        <p className="text-[10px] text-muted-foreground/60 mt-3">* = experimenting / learning</p>
       </div>
     </section>
   )

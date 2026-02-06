@@ -39,6 +39,7 @@ export interface Skills {
   tools: string[]
   design: string[]
   ai: string[]
+  misc: string[]
 }
 
 export interface Language {
@@ -63,16 +64,15 @@ export const resumeData: Resume = {
     location: "Lemmer, The Netherlands",
     email: "stoetenremco.rs@gmail.com",
     phone: "+31 6 36590707",
-    site: "https://remcostoeten.nl",
+    site: "https://remcostoeten-nl.vercel.app",
     github: "https://github.com/remcostoeten",
     linkedin: "https://linkedin.com/in/remco-stoeten",
   },
   summary: [
-    "Front End Engineer with eight years of experience across SaaS, e-commerce, government platforms and e-learning systems.",
-    "Graphic Design degree brings strong visual design sensibility to technical implementation.",
-    "Focused on TypeScript, React, Next.js and modern tooling with strong product thinking and autonomy.",
-    "Experienced with fully remote, autonomous, and hybrid work environments using Scrum, Kanban and Shape Up.",
-    "Expanding expertise in full stack architecture, scalability, design systems and developer experience tooling.",
+    "Front-end engineer with a degree in graphic design and over eight years of experience across B2B/B2C e-commerce, open-source govtech, large-scale in-house SaaS, and e-learning platforms.",
+    "Strong product mindset with a focus on performance, scalability, and user experience.",
+    "Actively working with AI, both integrating APIs into products and leveraging AI to enhance developer experience and internal tooling.",
+    "Comfortable in fully remote and hybrid environments. Experienced with Scrum, Kanban, Shape Up, and autonomous teams.",
   ],
   experience: [
     {
@@ -122,14 +122,14 @@ export const resumeData: Resume = {
   projects: [
     {
       name: "Skriuw",
-      desc: "Native desktop note and task manager built with Next.js and Tauri 2.0. Features local-first storage, Markdown editing with preview, and cross-platform support for Linux, macOS and Windows.",
+      desc: "Note-taking and productivity platform available as web app, PWA, or native desktop app (Tauri/Rust). Cloud, self-hosted, or fully offline. Block editor with wikilinks, BYOK for AI and database, daily notes, 25+ keyboard shortcuts, and deep customization. macOS, Windows, and Linux.",
       link: "https://skriuw.vercel.app",
       category: "app",
       note: "In active development",
     },
     {
       name: "Dora",
-      desc: "Native desktop database management tool with a Rust API and Tauri frontend. Includes connection management with SSH tunneling, spreadsheet-style data editing, Drizzle ORM integration with custom LSP, and schema export.",
+      desc: "High-performance, keyboard-centric database explorer built with Rust and Tauri. At ~8.5MB vs pgAdmin's ~400MB. Features query execution, data visualization, migration tooling, ORM schema generation, SSH tunneling, and a custom Go CLI for builds and releases. Fully offline, zero telemetry.",
       link: "https://doradb.vercel.app",
       category: "app",
       note: "In active development",
@@ -148,14 +148,15 @@ export const resumeData: Resume = {
     },
   ],
   skills: {
-    languages: ["TypeScript", "JavaScript", "(S)CSS", "Shell (bash, fish, zsh)", "Scripting (Python*, Lua)"],
-    frameworks: ["React", "Next.js", "Qwik", "Solid", "Svelte", "TanStack Query"],
-    styling: ["Tailwind", "(S)CSS", "Styled Components"],
-    backend: ["Node.js", "Hono", "Express"],
+    languages: ["TypeScript", "JavaScript", "Shell (bash, fish, zsh)", "Scripting (Python*, Lua)"],
+    frameworks: ["React", "Next.js", "TanStack Start", "SolidStart*", "Qwik*", "Svelte*"],
+    styling: ["CSS", "SCSS/Less/Sass", "Styled Components", "Tailwind CSS"],
+    backend: ["Node.js", "Hono", "ElysiaJS", "Express", "Go*", "Tauri/Rust*"],
     databases: ["PostgreSQL", "SQLite", "LibSQL", "Turso", "Drizzle ORM", "Prisma"],
-    tools: ["Git", "Docker", "Vite", "pnpm", "Bun", "CI/CD", "Linux", "SSH", "DX tooling"],
+    tools: ["Git", "Docker", "Vite", "pnpm", "Bun", "Linux", "SSH", "CLI/DX tooling"],
     design: ["Figma", "Photoshop"],
-    ai: ["Claude Code", "Cursor", "Custom CLI tooling", "LLM API integration", "AI-assisted development"],
+    ai: ["API integration (Vercel AI SDK, OpenRouter)", "Whatever tool fits the job best"],
+    misc: ["Playwright", "Vitest", "GitHub Actions", "Vercel", "Cloudflare", "GraphQL", "REST", "tRPC", "Monorepos", "WCAG/a11y"],
   },
   languages: [
     { name: "Dutch", level: "Native" },
