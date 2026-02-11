@@ -161,9 +161,21 @@ export const resumeData: Resume = {
 			'Shell (bash, fish, zsh)',
 			'Scripting (Python*, Lua)'
 		],
-		frameworks: ['React', 'Next.js', 'TanStack Start', 'SolidStart*', 'Qwik*', 'Svelte*'],
+		frameworks: ['React', 'Next.js', 'TanStack Start', 'Solid', 'Qwik*', 'Svelte*'],
 		styling: ['CSS', 'SCSS/Less/Sass', 'Styled Components', 'Tailwind CSS'],
-		backend: ['Node.js', 'Hono', 'ElysiaJS', 'Express', 'Go*', 'Tauri/Rust*'],
+		backend: [
+			'Node.js',
+			'Hono*',
+			'Elysia*',
+			'Express',
+			'React Server Components (RSC)',
+			'Next.js Server Actions / Route Handlers',
+			'SSR (Server-Side Rendering)',
+			'Serverless & Edge runtimes (Vercel, Cloudflare Workers)',
+			'BFF (Backend for Frontend)',
+			'Go*',
+			'Tauri/Rust*'
+		],
 		databases: ['PostgreSQL', 'SQLite', 'LibSQL', 'Turso', 'Drizzle ORM', 'Prisma'],
 		tools: ['Git', 'Docker', 'Vite', 'pnpm', 'Bun', 'Linux', 'SSH', 'CLI/DX tooling'],
 		design: ['Figma', 'Photoshop'],
