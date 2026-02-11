@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS resume (
+	id BIGSERIAL PRIMARY KEY,
+	event TEXT NOT NULL,
+	ts TIMESTAMPTZ NOT NULL DEFAULT now(),
+	path TEXT,
+	referrer TEXT,
+	origin TEXT,
+	host TEXT,
+	is_localhost BOOLEAN,
+	ua TEXT,
+	lang TEXT,
+	ip_hash TEXT,
+	visitor_id TEXT,
+	country TEXT,
+	region TEXT,
+	city TEXT,
+	device_type TEXT,
+	resume_version TEXT,
+	meta JSONB
+);

@@ -2,13 +2,9 @@
 
 Personal resume site for Remco Stoeten.
 
-## Development
+Can be viewed here, also contains a way to download a PDF version [https://remcos.cv](remcos.cv)
 
-```bash
-bun install
-bun dev
-```
+### development
 
-## Deployment
-
-Deployed via Vercel.
+<small>note for myself</small>
+`tools/sql/resume.sql` contains a SQL query which seeds a postgres (neon) database with the needed table to push pdf download events to.
