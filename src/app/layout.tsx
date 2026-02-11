@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
-//import { GoogleAnalytics } from '@/components/analytics'
 import "@/styles/globals.css"
 
 // Structured data for SEO
@@ -175,8 +174,6 @@ export default function RootLayout({
             <body className="py-12 font-sans antialiased">
                 {children}
                 <Analytics />
-                {/* Uncomment below and add your GA4 measurement ID to analytics.tsx */}
-                {/* <GoogleAnalytics /> */}
             </body>
         </html>
     )
