@@ -1,12 +1,20 @@
 {
-  "name": "my-v0-project",
+  "name": "remco-stoeten-2025-resume",
   "version": "0.1.0",
   "private": true,
+  "description": "Resume of Remco Stoeten - Frontend engineer",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint .",
-    "start": "next start"
+    "dep": "echo 'deploying to staging'; vercel deploy",
+    "deploy": "echo 'deploying to production'; vercel deploy --prod",
+    "lint": "oxlint -c .oxlintrc.json .",
+    "lint:fix": "oxlint --fix -c .oxlintrc.json .",
+    "format": "oxfmt --check -c .oxfmtrc.json .",
+    "format:fix": "oxfmt --write -c .oxfmtrc.json .",
+    "lint:style": "tsx tools/run-lint-style.ts",
+    "lint:style:fix": "tsx tools/run-lint-style-fix.ts",
+    "fix": "npm run format:fix && npm run lint:fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -67,8 +75,12 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
+    "ts-morph": "^27.0.2",
+    "tsx": "^4.21.0",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
   }

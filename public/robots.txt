@@ -1,13 +1,8 @@
-# Robots.txt for remcos.cv
-
 User-agent: *
 Allow: /
 
 # Sitemaps
 Sitemap: https://remcos.cv/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
 
 # Block common bot paths
 User-agent: *

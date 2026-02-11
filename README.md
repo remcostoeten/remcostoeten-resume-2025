@@ -1,30 +1,14 @@
-# Untitled Chat (3)
+# Remco Stoeten Resume 2025
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Personal resume site for Remco Stoeten.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gerardstcryptos-projects/v0-untitled-chat)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/a0VXB19CAvQ)
+## Development
 
-## Overview
-
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+```bash
+bun install
+bun dev
+```
 
 ## Deployment
 
-Your project is live at:
-
-**[https://vercel.com/gerardstcryptos-projects/v0-untitled-chat](https://vercel.com/gerardstcryptos-projects/v0-untitled-chat)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/a0VXB19CAvQ](https://v0.app/chat/a0VXB19CAvQ)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Deployed via Vercel.
