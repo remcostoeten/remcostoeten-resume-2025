@@ -55,7 +55,7 @@ export function DownloadResumeButton() {
 
 			const body = JSON.stringify(payload)
 			if (navigator.sendBeacon) {
-				navigator.sendBeacon('/api/track', body)
+				navigator.sendBeacon('/api/track', new Blob([body], { type: 'application/json' }))
 				return
 			}
 			fetch('/api/track', {
