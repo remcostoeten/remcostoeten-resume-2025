@@ -39,18 +39,27 @@ type TrackPayload = {
  * );
  */
 
-const pool =
-	globalThis.__resumePgPool ||
-	new Pool({
-		connectionString: process.env.DATABASE_URL,
-		ssl:
-			process.env.NODE_ENV === 'development' ||
-			process.env.DATABASE_URL?.includes('localhost')
-				? { rejectUnauthorized: false }
-				: true
+function getPool(): Pool | null {
+	const connectionString = process.env.DATABASE_URL
+	if (!connectionString) return null
+
+	if (globalThis.__resumePgPool) return globalThis.__resumePgPool
+
+	const isDev =
+		process.env.NODE_ENV === 'development' || connectionString.includes('localhost')
+
+	const newPool = new Pool({
+		connectionString,
+		ssl: isDev ? { rejectUnauthorized: false } : true
 	})
 
-globalThis.__resumePgPool = pool
+	newPool.on('error', (err) => {
+		console.error('[PgPool] Unexpected error on idle client', err)
+	})
+
+	globalThis.__resumePgPool = newPool
+	return newPool
+}
 
 function getClientIp(req: NextRequest) {
 	const forwarded = req.headers.get('x-forwarded-for')
@@ -137,6 +146,12 @@ export async function POST(req: NextRequest) {
 		const origin = header(req, 'origin')
 		const host = header(req, 'host')
 		const isLocalhost = isLocalhostHost(host)
+
+		const pool = getPool()
+		if (!pool) {
+			console.error('[Track] Database pool not available')
+			return new Response(null, { status: 204 })
+		}
 
 		await pool.query(
 			`
