@@ -64,14 +64,17 @@ function getClientIp(req: NextRequest) {
 }
 
 function hashIp(ip: string) {
-	if (!ip) return ''
-	const salt = process.env.TRACKING_SALT || ''
+	if (!ip) return null
+	const salt = process.env.TRACKING_SALT
+	if (!salt) return null
+
 	return crypto.createHash('sha256').update(`${salt}:${ip}`).digest('hex')
 }
 
 function hashVisitorId(ip: string, ua: string, lang: string) {
 	const salt = process.env.TRACKING_SALT
-	if (!salt || !ip) return ''
+	if (!salt || !ip) return null
+
 	const raw = `${salt}:${ip}:${ua}:${lang}`
 	return crypto.createHash('sha256').update(raw).digest('hex')
 }
@@ -116,6 +119,11 @@ export async function POST(req: NextRequest) {
 		const ip = getClientIp(req)
 		const ipHash = hashIp(ip)
 		const visitorId = hashVisitorId(ip, ua, lang)
+
+		if (!ipHash || !visitorId) {
+			console.warn('[Tracking] Aborting due to missing TRACKING_SALT')
+			return new Response(null, { status: 204 })
+		}
 
 		const country =
 			header(req, 'x-vercel-ip-country') || header(req, 'cf-ipcountry') || ''
