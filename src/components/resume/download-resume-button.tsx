@@ -273,7 +273,7 @@ export function DownloadResumeButton() {
 		addText(langText, margin + labelWidth, y, { fontSize: 9, color: mutedForeground })
 		y += 8
 
-		checkPageBreak(6)
+		checkPageBreak(8)
 		addText('* = experimenting / learning', margin, y, {
 			fontSize: 8,
 			color: mutedForeground
