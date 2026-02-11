@@ -2,6 +2,11 @@ import { NextRequest } from 'next/server'
 import { Pool } from 'pg'
 import crypto from 'crypto'
 
+declare global {
+	// eslint-disable-next-line no-var
+	var __resumePgPool: Pool | undefined
+}
+
 type TrackPayload = {
 	event?: string
 	path?: string
@@ -38,11 +43,14 @@ const pool =
 	globalThis.__resumePgPool ||
 	new Pool({
 		connectionString: process.env.DATABASE_URL,
-		ssl: { rejectUnauthorized: false }
+		ssl:
+			process.env.NODE_ENV === 'development' ||
+			process.env.DATABASE_URL?.includes('localhost')
+				? { rejectUnauthorized: false }
+				: true
 	})
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-;(globalThis as any).__resumePgPool = pool
+globalThis.__resumePgPool = pool
 
 function getClientIp(req: NextRequest) {
 	const forwarded = req.headers.get('x-forwarded-for')
@@ -62,7 +70,8 @@ function hashIp(ip: string) {
 }
 
 function hashVisitorId(ip: string, ua: string, lang: string) {
-	const salt = process.env.TRACKING_SALT || ''
+	const salt = process.env.TRACKING_SALT
+	if (!salt || !ip) return ''
 	const raw = `${salt}:${ip}:${ua}:${lang}`
 	return crypto.createHash('sha256').update(raw).digest('hex')
 }
@@ -144,7 +153,7 @@ export async function POST(req: NextRequest) {
 				city,
 				deviceType,
 				resumeVersion,
-				JSON.stringify(meta)
+				meta
 			]
 		)
 
