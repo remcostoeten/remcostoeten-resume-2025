@@ -166,7 +166,8 @@ export async function POST(req: NextRequest) {
 		)
 
 		return new Response(null, { status: 204 })
-	} catch {
+	} catch (err) {
+		console.error('[track] failed to record event', err)
 		return new Response(null, { status: 204 })
 	}
 }
