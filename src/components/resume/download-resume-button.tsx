@@ -30,7 +30,47 @@ function parseBoldForPDF(text: string): Array<{ text: string; bold: boolean }> {
 }
 
 export function DownloadResumeButton() {
+	const trackDownload = () => {
+		try {
+			const payload = {
+				event: 'resume_download',
+				path: window.location.pathname,
+				referrer: document.referrer || '',
+				resumeVersion: '2026-02-11',
+				meta: {
+					timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+					screen: {
+						width: window.screen.width,
+						height: window.screen.height
+					},
+					viewport: {
+						width: window.innerWidth,
+						height: window.innerHeight
+					},
+					deviceMemory: (navigator as Navigator & { deviceMemory?: number }).deviceMemory,
+					hardwareConcurrency: navigator.hardwareConcurrency,
+					language: navigator.language
+				}
+			}
+
+			const body = JSON.stringify(payload)
+			if (navigator.sendBeacon) {
+				navigator.sendBeacon('/api/track', body)
+				return
+			}
+			fetch('/api/track', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body,
+				keepalive: true
+			})
+		} catch {
+			// ignore tracking failures
+		}
+	}
+
 	const generatePDF = async () => {
+		trackDownload()
 		const { jsPDF } = await import('jspdf')
 
 		const doc = new jsPDF({
