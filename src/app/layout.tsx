@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
+import { VisitorTracker } from "@/components/visitor-tracker"
 import "@/styles/globals.css"
 
 // Structured data for SEO
@@ -173,6 +174,7 @@ export default function RootLayout({
             </head>
             <body className="py-12 font-sans antialiased">
                 {children}
+                <VisitorTracker />
                 <Analytics />
             </body>
         </html>
