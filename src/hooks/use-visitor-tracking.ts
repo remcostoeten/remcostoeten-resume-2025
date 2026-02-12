@@ -107,11 +107,21 @@ function getWebGLInfo(): { renderer: string; vendor: string } {
 // Collect all client-side fingerprint signals
 // ---------------------------------------------------------------------------
 
+interface Fingerprint {
+	[key: string]: unknown
+}
+
+let cachedFingerprint: Fingerprint | null = null
+
 function collectFingerprint() {
+	if (cachedFingerprint) {
+		return cachedFingerprint
+	}
+
 	const webgl = getWebGLInfo()
 	const nav = navigator as Navigator & { deviceMemory?: number }
 
-	return {
+	const fingerprint: Fingerprint = {
 		screenWidth: screen.width,
 		screenHeight: screen.height,
 		colorDepth: screen.colorDepth,
@@ -125,6 +135,9 @@ function collectFingerprint() {
 		webglVendor: webgl.vendor,
 		canvasHash: getCanvasFingerprint(),
 	}
+
+	cachedFingerprint = fingerprint
+	return fingerprint
 }
 
 // ---------------------------------------------------------------------------
@@ -199,10 +212,20 @@ export function useVisitorTracking() {
 			})
 		}
 
+		const handleVisibilityChange = () => {
+			if (document.visibilityState === 'hidden') {
+				sendSessionEnd()
+			}
+		}
+
 		window.addEventListener('beforeunload', sendSessionEnd)
+		window.addEventListener('pagehide', sendSessionEnd)
+		document.addEventListener('visibilitychange', handleVisibilityChange)
 
 		return () => {
 			window.removeEventListener('beforeunload', sendSessionEnd)
+			window.removeEventListener('pagehide', sendSessionEnd)
+			document.removeEventListener('visibilitychange', handleVisibilityChange)
 		}
 	}, [])
 

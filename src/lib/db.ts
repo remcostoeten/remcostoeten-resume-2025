@@ -11,12 +11,23 @@ export function getPool(): Pool | null {
 
 	if (globalThis.__resumePgPool) return globalThis.__resumePgPool
 
-	const isDev =
-		process.env.NODE_ENV === 'development' || connectionString.includes('localhost')
+	const sslEnv = process.env.PG_SSL?.toLowerCase()
+	let ssl: boolean | { rejectUnauthorized: boolean } | undefined
+
+	if (sslEnv === 'false' || sslEnv === '0' || sslEnv === 'disable') {
+		ssl = false
+	} else if (sslEnv === 'no-verify') {
+		ssl = { rejectUnauthorized: false }
+	} else if (sslEnv === 'true' || sslEnv === '1' || sslEnv === 'require') {
+		ssl = true
+	} else {
+		// let `pg` infer SSL from the connection string / environment
+		ssl = undefined
+	}
 
 	const pool = new Pool({
 		connectionString,
-		ssl: isDev ? { rejectUnauthorized: false } : true,
+		ssl,
 	})
 
 	pool.on('error', (err) => {
